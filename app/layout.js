@@ -1,4 +1,5 @@
 import { Josefin_Sans } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const josefin = Josefin_Sans({
   subsets: ["latin"],
@@ -21,6 +22,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <SpeedInsights />
       <body
         className={` ${josefin.className} antialiased bg-primary-950 text-primary-100 min-h-screen flex flex-col relative`}
       >

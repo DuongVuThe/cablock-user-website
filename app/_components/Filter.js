@@ -1,5 +1,6 @@
 "use client";
 
+import { AdjustmentsVerticalIcon } from "@heroicons/react/24/solid";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 function Filter() {
@@ -11,6 +12,7 @@ function Filter() {
 
   function handleFilter(filter) {
     const params = new URLSearchParams(searchParams);
+
     params.set("capacity", filter);
     router.replace(`${pathname}?${params.toString()}`, { scroll: false });
   }
@@ -18,7 +20,6 @@ function Filter() {
   return (
     <div className="border border-primary-800 flex">
       <Button
-        className="px-5 py-2 hover:bg-primary-700"
         handleFilter={handleFilter}
         filter="all"
         activeFilter={activeFilter}
@@ -26,7 +27,6 @@ function Filter() {
         All cabins
       </Button>
       <Button
-        className="px-5 py-2 hover:bg-primary-700"
         handleFilter={handleFilter}
         filter="small"
         activeFilter={activeFilter}
@@ -34,7 +34,6 @@ function Filter() {
         1&mdash;3 guests
       </Button>
       <Button
-        className="px-5 py-2 hover:bg-primary-700"
         handleFilter={handleFilter}
         filter="medium"
         activeFilter={activeFilter}
@@ -42,7 +41,6 @@ function Filter() {
         4&mdash;7 guests
       </Button>
       <Button
-        className="px-5 py-2 hover:bg-primary-700"
         handleFilter={handleFilter}
         filter="large"
         activeFilter={activeFilter}
@@ -56,7 +54,7 @@ function Filter() {
 function Button({ filter, handleFilter, activeFilter, children }) {
   return (
     <button
-      className={`px-5 py-2 hover:bg-primary-700 ${
+      className={`px-1 sm:px-5 py-2 hover:bg-primary-700 rounded text-sm ${
         activeFilter === filter ? "bg-primary-700 text-primary-50" : ""
       }`}
       onClick={() => handleFilter(filter)}

@@ -7,24 +7,23 @@ function Cabin({ cabin }) {
     cabin;
 
   return (
-    <div className="grid grid-cols-[3fr_4fr] gap-20 border border-primary-800 py-3 px-10 mb-24">
-      <div className="relative scale-[1.15] -translate-x-3">
+    <div className="flex flex-col lg:grid lg:grid-cols-2 gap-5 border border-primary-800 mb-24 rounded-md overflow-hidden items-center">
+      <div className="relative w-full h-56 sm:h-96 rounded-md overflow-hidden">
         <Image
           fill
           className="object-cover"
           src={image}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           alt={`Cabin ${name}`}
         />
       </div>
 
       <div>
-        <h3 className="text-accent-100 font-black text-7xl mb-5 translate-x-[-254px] bg-primary-950 p-6 pb-1 w-[150%]">
+        <h3 className="text-accent-100 font-black text-3xl lg:text-7xl mb-5 bg-primary-950 p-6 pb-1 text-center lg:text-left">
           Cabin {name}
         </h3>
 
-        <p className="text-lg text-primary-300 mb-10">
-          <TextExpander>{description}</TextExpander>
-        </p>
+        <TextExpander>{description}</TextExpander>
 
         <ul className="flex flex-col gap-4 mb-7">
           <li className="flex gap-3 items-center">

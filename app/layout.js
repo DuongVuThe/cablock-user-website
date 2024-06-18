@@ -1,6 +1,3 @@
-import Logo from "./_components/Logo";
-import Navigation from "./_components/Navigation";
-
 import { Josefin_Sans } from "next/font/google";
 
 const josefin = Josefin_Sans({
@@ -9,6 +6,7 @@ const josefin = Josefin_Sans({
 });
 
 import "@/app/_styles/globals.css";
+import Footer from "./_components/Footer";
 import Header from "./_components/Header";
 import { ReservationProvider } from "./_components/ReservationContext";
 
@@ -27,12 +25,12 @@ export default function RootLayout({ children }) {
         className={` ${josefin.className} antialiased bg-primary-950 text-primary-100 min-h-screen flex flex-col relative`}
       >
         <Header />
-        <div className="flex-1 px-8 py-12 grid">
+        <div className="flex-1 px-2 py-8 sm:px-8 sm:py-12 grid">
           <main className="max-w-7xl mx-auto w-full">
             <ReservationProvider>{children}</ReservationProvider>
           </main>
         </div>
-        <footer>Copyright by The CABLOCK</footer>
+        <Footer />
       </body>
     </html>
   );

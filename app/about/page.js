@@ -2,6 +2,7 @@ import about1 from "@/public/about-1.jpg";
 import about2 from "@/public/about-2.jpg";
 import Image from "next/image";
 import { getCabins } from "../_lib/data-service";
+import Link from "next/link";
 
 export const metadata = {
   title: "About",
@@ -15,9 +16,9 @@ export default function Page() {
   const numCabins = cabins.length;
 
   return (
-    <div className="grid grid-cols-5 gap-x-24 gap-y-32 text-lg items-center">
-      <div className="col-span-3">
-        <h1 className="text-4xl mb-10 text-accent-400 font-medium">
+    <div className="grid grid-cols-5 gap-x-10 lg:gap-x-24 gap-y-10 lg:gap-y-32 text-sm lg:text-lg items-center">
+      <div className="col-span-5 lg:col-span-3">
+        <h1 className="text-lg lg:text-4xl mb-5 lg:mb-10 text-accent-400 font-medium">
           Welcome to The CABLOCK
         </h1>
 
@@ -30,7 +31,7 @@ export default function Page() {
             and enjoying simple pleasures with family.
           </p>
           <p>
-            Our ${numCabins} luxury cabins provide a cozy base, but the real
+            Our {numCabins} luxury cabins provide a cozy base, but the real
             freedom and peace you&apos;ll find in the surrounding mountains.
             Wander through lush forests, breathe in the fresh air, and watch the
             stars twinkle above from the warmth of a campfire or your hot tub.
@@ -43,18 +44,19 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="col-span-2 relative aspect-square">
+      <div className="col-span-5 sm:col-span-2 relative aspect-square">
         <Image
           fill
           placeholder="blur"
           className="object-cover"
           src={about1}
+          sizes="33vw"
           alt="Family sitting around a fire pit in front of cabin"
           quality={80}
         />
       </div>
 
-      <div className="col-span-2 relative aspect-square">
+      <div className="col-span-5 sm:col-span-2 relative aspect-square">
         <Image
           fill
           placeholder="blur"
@@ -62,11 +64,12 @@ export default function Page() {
           src={about2}
           alt="Family that manages The Wild Oasis"
           quality={80}
+          sizes="33vw"
         />
       </div>
 
-      <div className="col-span-3">
-        <h1 className="text-4xl mb-10 text-accent-400 font-medium">
+      <div className="col-span-5 lg:col-span-3">
+        <h1 className="text-lg lg:text-4xl mb-5 lg:mb-10 text-accent-400 font-medium">
           Managed by our family since 1962
         </h1>
 
@@ -86,13 +89,13 @@ export default function Page() {
             is like coming home.
           </p>
 
-          <div>
-            <a
+          <div className="flex lg:block justify-center">
+            <Link
               href="/cabins"
-              className="inline-block mt-4 bg-accent-500 px-8 py-5 text-primary-800 text-lg font-semibold hover:bg-accent-600 transition-all"
+              className="inline-block mt-4 bg-accent-500 px-5 py-4 sm:px-8 sm:py-5 text-primary-800 text-base sm:text-lg font-semibold hover:bg-accent-600 transition-all"
             >
               Explore our luxury cabins
-            </a>
+            </Link>
           </div>
         </div>
       </div>

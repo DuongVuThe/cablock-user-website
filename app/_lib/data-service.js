@@ -75,8 +75,6 @@ export async function getBooking(id) {
     throw new Error("Booking could not get loaded");
   }
 
-  console.log(data);
-
   return data;
 }
 
